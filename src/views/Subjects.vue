@@ -23,16 +23,26 @@ axios.defaults.baseURL = 'http://10.0.0.105:8000'
 
 export default {
   name: "Subjects",
+  data() {
+    return {
+      subject_name: 'Escolha uma matéria',
+      changeList: 0,
+      title_subjects: 'Matérias',
+      lessons_data: [],
+      to_delete0: {},
+      refreshSubList: 0
+    }
+  },
   methods: {
     showClickedSubjectLessons(sub){
       axios.get('/get_lessons/'+sub).then((response) => {
-                this.lessons_data = response.data.lessons
+                this.lessons_data = this.replaceBreakLine(response.data.lessons)
             })
       this.subject_name = sub
     },
     updateBothLists(sub){
       axios.get('/get_lessons/'+sub).then((response) => {
-                this.lessons_data = response.data.lessons
+                this.lessons_data = this.replaceBreakLine(response.data.lessons)
             })
       this.to_delete0 = {}
       this.refreshSubList ++
@@ -45,16 +55,14 @@ export default {
       formated = day + '/' + month + '/' + year
 
       return formated
-    }
-  },
-  data() {
-    return {
-      subject_name: 'Escolha uma matéria',
-      changeList: 0,
-      title_subjects: 'Matérias',
-      lessons_data: [],
-      to_delete0: {},
-      refreshSubList: 0
+    },
+    replaceBreakLine(list){
+      list.forEach(s => {
+        s[1].replace('kkk', '<br>')
+        console.log(s)
+      })
+
+      return list
     }
   },
   components: {
