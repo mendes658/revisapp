@@ -1,5 +1,5 @@
-/*Gráfico montado com ChartJs, acesse a documentação em: 
-https://www.chartjs.org/docs/latest/getting-started/ */
+<!--Gráfico montado com ChartJs, acesse a documentação em: 
+    https://www.chartjs.org/docs/latest/getting-started/  -->
 
 <template>
     <div id="charts">

@@ -1,3 +1,6 @@
+<!--Calendário Vanilla-Calendar, acesse a documentação em:
+    https://vanilla-calendar.frontend.uvarov.tech/api/ -->
+ 
 <template>
     <div class="vanilla-calendar" id="calendar">
     </div>
@@ -14,13 +17,15 @@
                 calendar: ''
             }
         },
+
         methods: {
-            dayClicked0(dates){
-                this.$emit('dayClicked', dates)
-            },
+            /*  O get retorna um dicionário "allRevisons" com as chaves sendo as datas
+                em que existem revisões agendadas, e os valores são as matérias,
+                eles são colocados como "popups" no calendar e as datas ficam selecionadas */
             updateCalendar(){
                 axios.get('/get_all_revisions').then((response) => {
                     let allRevisions = response.data.allRevisions
+                    
                     Object.keys(allRevisions).forEach(date => {
                         this.calendar.settings.selected.dates.push(date)
                         let subs = allRevisions[date]
@@ -28,9 +33,10 @@
                         this.calendar.popups[date] = {}
                         this.calendar.popups[date].html = subs
                     });
-                }).catch((err) => {console.log(err.response)})
+                }).catch(() => {})
             }
         },
+
         mounted() {
             this.calendar = new VanillaCalendar('#calendar', {
                 settings: {
@@ -45,11 +51,14 @@
                     weekday: ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb']
                 },
                 popups: {
-                }
+                } /*Necessário iniciar as popups vazias para preencher depois */
             });
             
             this.calendar.init()
             this.updateCalendar()
+            
+            /*  Se o calendário é atualizado antes de tudo ser montado, as datas não aparecem
+                necessário setTimeout */
             setTimeout(()=>{
                 this.calendar.update()
             },300)

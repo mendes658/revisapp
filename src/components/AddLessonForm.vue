@@ -1,16 +1,18 @@
 <template>
     <form>  
         <div class="form-group">
-            <label for="chooseSubject" v-if="subjects != ''">Escolha a matéria</label>
+            <label for="chooseSubject" v-if=" subjects != '' ">Escolha a matéria</label>
             <label for="chooseSubject" v-else>Adicione uma matéria em "Minhas Matérias"</label>
             <select class="main-select" id="chooseSubject" v-model="chosen_subject">
                 <option v-for="(subject, index) in subjects" :key="index" :value="subject[0]">{{ subject[0] }}</option>
             </select>
         </div>
+        
         <div class="form-group" style="margin-top: 5px">
             <label for="lessonInput">Digite o assunto</label>
             <textarea rows="3" name="" id="lessonInput" class="main-select" v-model="lesson_taken"></textarea>
         </div>
+        
         <div class="form-group">
             <p>Frequência das revisões (em dias após última revisão):</p> 
             <label for="revision1">1º</label>
@@ -59,10 +61,12 @@
                 <option>90</option>
             </select>
         </div>
+        
         <div class="form-group">
             <label for="dateInput" style="margin-top: 20px; margin-right: 6px">Data:</label>
             <input type="date" class="main-select" style="width:50%" id="dateInput" v-model="lesson_date" :max="today" min="2022-01-01">
         </div>
+        
         <div class="send-btn-alert" style="display:table;">
             <div style="display:table-cell;">
                 <button type="" class="btn btn-success" @click="sendLesson">Enviar</button>

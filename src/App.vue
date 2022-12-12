@@ -22,7 +22,7 @@ import Header from './components/Header.vue'
 import Login from './components/Login.vue'
 import axios from 'axios'
 axios.defaults.baseURL = 'http://10.0.0.105:8000'
-axios.defaults.withCredentials = true
+axios.defaults.withCredentials = true /*Necessário para mandar o token jwt nos headers para a API */
 
 
 export default {
@@ -61,7 +61,7 @@ export default {
     },
 
     addResizeListener(){
-      window.addEventListener('resize', (event) => {this.checkScreenWidth()})
+      window.addEventListener('resize', () => {this.checkScreenWidth()})
     },
 
     checkScreenWidth(){
@@ -87,14 +87,15 @@ export default {
         this.logged = false
       }
     },
-
+    
     logOut(){
       this.logged = false
     },
     
+    /*Verifica se existe um token válido nos cookies e loga o user caso verdadeiro */
     autoLogin(){
-                axios.get('/auth_user').then((response)=> {
-                }).catch((err)=> {
+                axios.get('/auth_user').then(()=> {
+                }).catch(()=> {
                     this.logged = false
                 })
             }

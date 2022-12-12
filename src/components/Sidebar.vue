@@ -49,6 +49,8 @@
         
       },
       
+      /*Lê o fim da url atual e adiciona uma classe ao dicionário "activeBar" 
+        Essa classe é lida pelo link respectivo na sidebar e adiciona o efeito de "ativo"*/
       updateHighlightBar(){
         let linkName = window.location.href
         linkName = linkName.split('/')
@@ -63,6 +65,8 @@
           console.log(this.activeBar)
         });
       },
+
+      /*Manda um get para a API excluir o token salvo no navegador */
       logOut(){
         axios.get('/log_out').catch((err)=>{
           console.log(err.response)
@@ -70,6 +74,7 @@
           this.$emit('logOut')
         })
       }
+
     },
     emits: ['hideSidebarOnClick', 'logOut'],
     mounted(){
