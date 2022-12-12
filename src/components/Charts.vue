@@ -1,3 +1,6 @@
+/*Gráfico montado com ChartJs, acesse a documentação em: 
+https://www.chartjs.org/docs/latest/getting-started/ */
+
 <template>
     <div id="charts">
         <canvas id="main-chart"></canvas>
@@ -10,14 +13,11 @@
     
     export default {
         name: 'Charts',
-        data() {
-            return {
-                test0: ''
-            }
-        },
-        components: {
-        },
+
         methods: {
+            
+            /*  Pega os últimos 11 dias e retorna duas listas com eles no formato 
+                DD/MM e YYYY-MM-DD*/
             getLast11Days(){
                 let today = new Date()
                 let todayInMs = today.getTime()
@@ -48,14 +48,14 @@
                     last11 = [todayStr].concat(last11)
                 }
                 return [last11, last11Padronized]
-            },
-
-            getLast11Revisions(chart){
-                let last11 = this.getLast11Days()[1]
-
+            }, 
+            
+            /*  Get para pegar as matérias estudadas nos últimos 11 dias
+                e colocar na Chart*/
+            getLast11Studied(chart){
                 axios.get('/get_last11_studied')
                 .then((response) => {
-                    last11 = response.data.last11
+                    let last11 = response.data.last11
 
                     let subs = Object.keys(last11)
                     let first = true
@@ -64,7 +64,7 @@
 
                         for (let i=0;i<2;i++){
                             if (i == 0){
-                                var a = 1
+                                var a = 1 /* a = decide a transparência, maior para o ponto e menor para a linha */
                             } else {
                                 var a = 0.6
                             }
@@ -90,6 +90,11 @@
                 })
 
             },
+            
+            /*  Gera uma cor de acordo com as letras da palavra, para que toda vez
+                a mesma matéria tenha a mesma cor sem a necessidade de deixar isso
+                salvo no banco de dados. O "a" do "rgba" é propositalmente deixado de fora,
+                já que a transparência da linha é decidida na função "getLast11Studied" */
             getColorByWord(word){
                 let totalSum = 0
                 for (let i=0;i<word.length;i++){
@@ -105,9 +110,11 @@
                 return 'rgba('+r+','+g+','+b
             }
         },
+        
         mounted() {
             var last11Days = this.getLast11Days()
             var xValues = last11Days[0];
+            
             var mainChart = new Chart("main-chart", {
             type: "line",
             data: {
@@ -123,7 +130,8 @@
                 responsive: true
             }
             });
-            this.getLast11Revisions(mainChart)
+            
+            this.getLast11Studied(mainChart)
         }
     }
 

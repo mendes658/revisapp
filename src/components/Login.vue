@@ -9,7 +9,7 @@
                     <label for="username" class="form-label">Username</label>
                     <input type="text" v-model="user" id="username" class="form-control">
                 </div>
-                <div class="form-group">
+                <div class="form-group" @keypress="pressedEnter($event)">
                     <label for="password" class="form-label">Senha</label>
                     <input type="password" v-model="pass" id="password" class="form-control">
                 </div>
@@ -225,7 +225,13 @@
             test(){
                 this.showIncorrectAlert('unavailableUser')
                 console.log('test')
-            }
+            },
+
+            pressedEnter(e){
+                if (e.key === 'Enter'){
+                    this.login()
+                }
+            },
 
         },
         emits: ['loggedIn'],
