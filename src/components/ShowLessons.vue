@@ -59,7 +59,7 @@
                 }).then((response) => {
                     console.log(response.data)
                     this.$emit('refreshLessons', this.now_subject)
-                })
+                }).catch(()=>{})
             },
 
             formatDateToBrazil(date){
