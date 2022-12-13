@@ -86,4 +86,7 @@ export default {
     max-height: 35px;
     margin-right: 10px;
 }
+.icon:hover{
+    filter: drop-shadow(0px 0px 2px  rgb(255, 196, 0));
+}
 </style>

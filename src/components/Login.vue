@@ -13,7 +13,7 @@
                     <label for="password" class="form-label">Senha</label>
                     <input type="password" v-model="pass" id="password" class="form-control">
                 </div>
-                <div class="form-group" v-if="createAccountScreen">
+                <div class="form-group" v-if="createAccountScreen" @keypress="pressedEnter($event)">
                     <label for="password-confirm" class="form-label">Confirme sua senha</label>
                     <input type="password" v-model="passConfirm" id="password-confirm" class="form-control">
                 </div>
@@ -52,12 +52,12 @@
             </div>
         </div>
         <div class="container0" style="margin-top: 5px; padding-top: 10px; max-height: max-content; margin-bottom: 30px;">
-            <div style="display: flex;">
+            <div style="display: flex;" class="section-title">
                 <div class="triangle"></div>
                 <div class="triangle-text"><h2>SOBRE MIM</h2></div>          
             </div>
             <div class="main-text">
-                <p>&nbsp;Meu nome é Pedro Mendes, tenho 20 anos e atualmente estou no segundo semestre de Engenharia de Computação na Universidade
+                <p>&nbsp;Olá! Meu nome é Pedro Mendes, tenho 20 anos e atualmente estou no segundo semestre de Engenharia de Computação na Universidade
                     Estadual de Feira de Santana. No momento estou em busca de uma oportunidade de emprego na área, como estagiário
                     ou desenvolvedor júnior. Possuo inglês avançado e conhecimentos intermediários em:
                 </p>
@@ -69,25 +69,25 @@
                 <p>&nbsp;Estou disposto a aprender qualquer tecnologia que seja necessária para realizar o trabalho, o principal
                     objetivo deste site é mostrar minha capacidade em "me virar" e resolver problemas.
                 </p>
-                <div style="margin-top: 10px">
+                <div style="margin-top: 10px; max-width: fit-content;">
                     <a href="https://github.com/mendes658" target="blank" class="img-link">
                         <div style="display: flex; align-items: flex-end;">
                             <img src="../assets/icons/github.png" alt="github" class="icon">
-                            <h3 style="margin-bottom: 0; margin-left: 10px">mendes658</h3>
+                            <h4 class="icon-name">mendes658</h4>
                         </div>
                     </a>
                 </div>
-                <div style="margin-top: 10px;">
+                <div style="margin-top: 10px; max-width: fit-content;">
                     <a href="https://www.linkedin.com/in/pedromendes658" target="blank" class="img-link" >
                         <div style="display: flex; align-items: flex-end;">
                             <img src="../assets/icons/linkedin.png" alt="linkedin" class="icon">
-                            <h3 style="margin-bottom: 0; margin-left: 10px"> Pedro Mendes</h3>
+                            <h4 class="icon-name"> Pedro Mendes</h4>
                         </div>
                     </a>    
                 </div>    
             </div>
             
-            <div style="display: flex; margin-top: 20px;">
+            <div style="display: flex; margin-top: 20px;" class="section-title">
                 <div class="triangle"></div>
                 <div class="triangle-text"><h2>SOBRE O REVISAPP</h2></div>          
             </div>
@@ -139,7 +139,7 @@
                 pass: '',
                 animation1: false,
                 animation2: false,
-                passConfirm: ''
+                passConfirm: '',
             }
         },
         methods: {
@@ -153,12 +153,8 @@
                     transformRequest: () => {
                         return loginForm
                     }
-                }
-                ).then((response) => {
+                }).then((response) => {
                     var token = response.data.access_token
-                    var tokenType = response.data.token_type
-                    console.log(token)
-                    console.log(response.headers)
                     if (token){
                         this.$emit('loggedIn', true)
                     }
@@ -213,10 +209,10 @@
                     axios.post('/create_user', {
                         username: this.user,
                         password: this.pass
-                    }).then((response)=>{
+                    }).then(()=>{
                         this.showAlert('successAlert')
                         this.showCreateAccount()
-                    }).catch((err)=>{
+                    }).catch(()=>{
                         this.showAlert('unavailableUser')
                     })
                 }
@@ -228,15 +224,19 @@
             },
 
             pressedEnter(e){
+                let id = e.target.id
+           
                 if (e.key === 'Enter'){
-                    this.login()
+                    if (id === 'password'){
+                        this.login()
+                    } else if (id === 'password-confirm'){
+                        this.createNewAccount()
+                    }
                 }
             },
-
         },
         emits: ['loggedIn'],
         created() {
-
         }
     }
 </script>
@@ -248,9 +248,8 @@
     margin-top: 5vw;
     padding-left: 0;
     padding-right: 0;
-    max-width: 500px;
-    max-height: 800px;
     padding-bottom: 15px;
+    max-width: 600px;
 }
 .logo {
     max-height: 50px;
@@ -351,10 +350,23 @@ ul {
     padding-bottom: 20px;
 }
 .icon {
-    max-height: 50px;
+    max-height: 30px;
 }
 .img-link{
     text-decoration: none;
     margin-bottom: 10px;
+}
+.icon-name{
+    margin-bottom: 0; 
+    margin-left: 10px;
+    color: blue;
+}
+.img-link:hover{
+    color: rgb(0, 37, 158);
+    filter: drop-shadow(0px 0px 2px  rgb(255, 196, 0));
+}
+.section-title{
+
+    color:rgba(3, 13, 58, 0.9);
 }
 </style>

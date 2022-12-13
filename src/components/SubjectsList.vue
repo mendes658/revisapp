@@ -66,7 +66,7 @@
                     axios.post('/add_subject', {
                         subject: this.sent_subject
                     }, 
-                    ).then((response) => {
+                    ).then(() => {
                         this.show_created_alert = true;
                         this.show_not_created_alert = false;
                         this.show_wordsize_error = false;
@@ -109,9 +109,7 @@
                     }).then((response) => {
                         console.log(response)
                         this.subjects = response.data.subjects
-                    }).catch((err)=>{
-                        console.log(err.response)
-                    })
+                    }).catch(()=>{})
             },
 
             deleteSubjects(){
@@ -119,12 +117,10 @@
                 console.log(subjectsToDelete)
                 axios.post('/delete_subjects', {
                         subjects: subjectsToDelete
-                    }).then((response) => {
+                    }).then(() => {
                         this.updateSubjects()
                         location.reload()
-                    }).catch((err)=>{
-                        console.log(err.response.status)
-                    })
+                    }).catch(()=>{})
                 this.to_delete = {}
             },
 

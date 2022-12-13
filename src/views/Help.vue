@@ -29,7 +29,7 @@
         background-color:rgba(255, 255, 255, 0.9);
         box-shadow: 0 2px 5px 0 rgb(0 0 0 / 5%), 0 2px 10px 0 rgb(0 0 0 / 5%);
         border-style: ridge;
-        border-color:aliceblue;
+        border-color:transparent;
         border-width: 5px;
         padding-bottom: 10px;
     }

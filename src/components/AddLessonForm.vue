@@ -140,7 +140,7 @@
                         lesson: this.lesson_taken,
                         first_rev_date: firstRev,
                         last_rev_date: lastRev
-                    })
+                    }).catch(()=>{})
                     this.$emit('updateOthers')
                     
                     this.sendSuccess = true
@@ -173,7 +173,7 @@
                         if (response.data.subjects != []){
                             this.subjects = response.data.subjects
                         }
-                    })
+                    }).catch(()=>{})
             },
 
             calculateRevisionDates(date, frequency){

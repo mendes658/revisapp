@@ -87,7 +87,7 @@
                         first = false
                     })
                     chart.update()
-                })
+                }).catch(()=>{})
 
             },
             

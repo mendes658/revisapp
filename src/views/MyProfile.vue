@@ -85,7 +85,7 @@ export default {
                 }
                 axios.get('/get_todays_revisions/' + today).then((response) => {
                     this.todays_revision = response.data.todaysRevisions
-                })
+                }).catch(()=>{})
       },
 
       getTodaysDate(date0){
@@ -139,7 +139,7 @@ export default {
   background-color:rgba(255, 255, 255, 0.9);
   border-style:ridge !important;
   border: 5px;
-  border-color:aliceblue;
+  border-color:transparent;
 }
 .container-fluid {
   max-height: 800px;

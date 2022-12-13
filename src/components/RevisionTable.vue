@@ -21,13 +21,6 @@
 
     export default{
         name: 'RevisionTable',
-        data () {
-            return {
-            }
-        },
-        methods: {
-            
-        },
         props: {
             todays_revision: Array
         },

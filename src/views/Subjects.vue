@@ -75,7 +75,7 @@ export default {
   background-color:rgba(255, 255, 255, 0.9);
   border-style:ridge !important;
   border: 5px;
-  border-color:aliceblue;
+  border-color:transparent;
   overflow-x: hidden;
   }
   .container-fluid {
