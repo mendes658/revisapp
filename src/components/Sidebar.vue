@@ -3,7 +3,7 @@
     <nav id="sidebarMenu" :style="showSidebar" class="d-lg-block sidebar bg-white" >
       <div class="position-sticky">
         <div class="list-group list-group-flush mt-3">
-          <router-link to="/" @click="scrollTop" :class="'list-group-item list-group-item-action py-2 ripple ' + activeBar.myprofile">
+          <router-link to="/" @click="scrollTop" :class="'list-group-item list-group-item-action py-2 ripple ' + activeBar['']">
             <img src="../assets/icons/myprofile.png" alt="" class="icon">  Meu Perfil
           </router-link>
           <router-link to="/subjects" @click="scrollTop" :class="'list-group-item list-group-item-action py-2 ripple ' + activeBar.subjects">
@@ -34,7 +34,7 @@
     },
     data(){
       return{
-        activeBar: {'logout': '', 'myprofile': '', 'subjects': '', 'help': ''}
+        activeBar: {'logout': '', '': '', 'subjects': '', 'help': ''}
       }
     },
     components: {
@@ -55,15 +55,17 @@
         let linkName = window.location.href
         linkName = linkName.split('/')
         linkName = linkName[linkName.length - 1]
-        let keys = Object.keys(this.activeBar)
+
+        let keys = Object.keys(this.activeBar)   
         keys.forEach(key => {
-          if (key == linkName){
+          if (key === linkName){
             this.activeBar[key] = 'active0'
           } else {
             this.activeBar[key] = ''
           }
           console.log(this.activeBar)
         });
+
       },
 
       /*Manda um get para a API excluir o token salvo no navegador */
