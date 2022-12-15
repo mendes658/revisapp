@@ -4,7 +4,7 @@
             <label for="subject-input">Digite o nome da matéria:</label>
             <input type="text" class="form-control" id="subject-input" v-model="typed_subject" @keypress="pressedEnter($event)">
             <div class="addsub-btns">
-            <button type="button" class="btn btn-success addsub-btn" @click="sendLesson0()">Adicionar</button>
+            <button type="button" class="btn btn-success addsub-btn" @click="addSubject()">Adicionar</button>
             <button type="button" class="btn btn-secondary" @click="openAddSubjectDiv">Voltar</button>
             </div>
             <div class="alert alert-success" role="alert" v-show="show_created_alert">
@@ -61,7 +61,7 @@
             }
         },
         methods: {
-            sendLesson0(){
+            addSubject(){
                     this.sent_subject = this.typed_subject
                     axios.post('/add_subject', {
                         subject: this.sent_subject
@@ -72,6 +72,7 @@
                         this.show_wordsize_error = false;
                     }).catch((err) => {
                         let status = err.response.status
+
                         if (status == 406){ /*sizeerror*/
                             this.show_wordsize_error = true;
                             this.show_not_created_alert = false;
@@ -80,6 +81,10 @@
                             this.show_not_created_alert = true;
                             this.show_created_alert = false;
                             this.show_wordsize_error = false;
+                        } else if (status == 429) { /*too many requests*/
+                            window.alert('O limite diário de matérias criadas por todos os usuários (2500)'+
+                                        ' foi excedido.'+
+                                        ' Tente novamente amanhã.')
                         }
                     }) 
                     setTimeout(()=>{
@@ -130,7 +135,7 @@
             
             pressedEnter(e){
                 if (e.key === 'Enter'){
-                    this.sendLesson0()
+                    this.addSubject()
                 }
             },
 

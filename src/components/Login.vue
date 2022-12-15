@@ -215,8 +215,16 @@
                     }).then(()=>{
                         this.showAlert('successAlert')
                         this.showCreateAccount()
-                    }).catch(()=>{
-                        this.showAlert('unavailableUser')
+                    }).catch((err)=>{
+                        let status = err.response.status
+                        if (status == 409){ /*conflict*/
+                            this.showAlert('unavailableUser')
+                        } else if (status == 429){ /*too many requests*/
+                            window.alert('O limite diário de contas criadas (1500)'+
+                                        ' foi excedido.'+
+                                        ' Tente novamente amanhã.')
+                        }
+
                     })
                 }
             },

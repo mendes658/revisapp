@@ -140,17 +140,28 @@
                         lesson: this.lesson_taken,
                         first_rev_date: firstRev,
                         last_rev_date: lastRev
-                    }).catch(()=>{})
-                    this.$emit('updateOthers')
-                    
-                    this.sendSuccess = true
-                    setTimeout(()=>{
-                        this.alertVisibility = 'opacity: 0;'
-                    }, 2000)
-                    setTimeout(()=>{
-                        this.sendSuccess = false
-                        this.alertVisibility = 'opacity: 1;'
-                    }, 4000)
+                    })
+                    .catch((err)=>{
+                        var status = err.response.status
+                        if (status == 429){ /*too many requests*/
+                            window.alert('O limite diário de assuntos criadas por todos os usuários (10000)'+
+                                        ' foi excedido.'+
+                                        ' Tente novamente amanhã.')
+                        }
+                    })
+                    .then(()=>{
+                        this.$emit('updateOthers')
+                        this.sendSuccess = true
+                        
+                        setTimeout(()=>{
+                            this.alertVisibility = 'opacity: 0;'
+                        }, 2000)
+                        
+                        setTimeout(()=>{
+                            this.sendSuccess = false
+                            this.alertVisibility = 'opacity: 1;'
+                        }, 4000)
+                    })
                 }
             },
             
