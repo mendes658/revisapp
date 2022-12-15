@@ -107,14 +107,14 @@
             updateSubjects(){
                 axios.get('/get_all_subjects', {
                     }).then((response) => {
-                        console.log(response)
+
                         this.subjects = response.data.subjects
                     }).catch(()=>{})
             },
 
             deleteSubjects(){
                 let subjectsToDelete = Object.keys(this.to_delete)
-                console.log(subjectsToDelete)
+
                 axios.post('/delete_subjects', {
                         subjects: subjectsToDelete
                     }).then(() => {

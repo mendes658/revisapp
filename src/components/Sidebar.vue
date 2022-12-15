@@ -63,16 +63,15 @@
           } else {
             this.activeBar[key] = ''
           }
-          console.log(this.activeBar)
+
         });
 
       },
 
       /*Manda um get para a API excluir o token salvo no navegador */
       logOut(){
-        axios.get('/log_out').catch((err)=>{
-          console.log(err.response)
-        }).then((response)=>{
+        axios.get('/log_out').catch(()=>{
+        }).then(()=>{
           this.$emit('logOut')
         })
       }

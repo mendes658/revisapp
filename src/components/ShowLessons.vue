@@ -48,22 +48,22 @@
                 } else {
                     delete this.to_delete[checkName]
                 }
-                console.log(this.to_delete)
+
             },
             
             deleteLesson(){
                 let toDel = Object.keys(this.to_delete)
-                console.log(toDel)
+
                 axios.post('/delete_lessons', {
                     ids: toDel
                 }).then((response) => {
-                    console.log(response.data)
+
                     this.$emit('refreshLessons', this.now_subject)
                 }).catch(()=>{})
             },
 
             formatDateToBrazil(date){
-                console.log(date)
+
                 let oldDate = date.split('-')
                 let newDate = oldDate[2] + '/' + oldDate[1] + '/' + oldDate[0]
                 return newDate

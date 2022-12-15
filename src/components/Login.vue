@@ -223,7 +223,6 @@
             
             test(){
                 this.showIncorrectAlert('unavailableUser')
-                console.log('test')
             },
 
             pressedEnter(e){
