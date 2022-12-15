@@ -19,9 +19,7 @@
 </template>
 
 <script>
-    import mainMethods from '../assets/methods.js'
     import axios from 'axios'
-    axios.defaults.baseURL = 'http://10.0.0.105:8000'
 
     export default {
         name: 'ShowLessons',
@@ -37,7 +35,14 @@
             now_subject: String
         },
         methods: {
-            chooseSubjectsToDelete: mainMethods[0],
+            chooseSubjectsToDelete(){
+                this.choose_delete = !this.choose_delete
+                if (this.checkbox_display == 'display: none'){
+                    this.checkbox_display = 'display: inline-block'
+                } else {
+                    this.checkbox_display = 'display: none'
+                }
+            },
             
             checkboxAction(e){
                 let isChecked = e.srcElement.checked

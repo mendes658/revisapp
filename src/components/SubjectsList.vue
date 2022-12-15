@@ -39,7 +39,6 @@
 </template>
 
 <script>
-    import mainMethods from '../assets/methods.js'
     import axios from 'axios'
 
     export default {
@@ -101,8 +100,15 @@
                 }
             },
             
-            chooseSubjectsToDelete: mainMethods[0], 
-            
+            chooseSubjectsToDelete(){
+                this.choose_delete = !this.choose_delete
+                if (this.checkbox_display == 'display: none'){
+                    this.checkbox_display = 'display: inline-block'
+                } else {
+                    this.checkbox_display = 'display: none'
+                }
+            },
+                        
             openAddSubjectDiv(){
                 this.add_subject_div = !this.add_subject_div
             },

@@ -165,6 +165,7 @@
                 }
             },
             
+            /*libera o checkbos seguinte após o usuário escolher um*/
             allowOtherSelects(chosen_value){
                 let day = chosen_value[0]
                 let index = chosen_value[2]
