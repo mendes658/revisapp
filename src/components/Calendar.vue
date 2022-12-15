@@ -8,7 +8,7 @@
 
 <script>
     import axios from 'axios'
-    axios.defaults.baseURL = 'http://10.0.0.105:8000'
+
 
     export default {
         name: 'Calendar',

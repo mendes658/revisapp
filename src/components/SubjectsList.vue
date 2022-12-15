@@ -41,8 +41,6 @@
 <script>
     import mainMethods from '../assets/methods.js'
     import axios from 'axios'
-    axios.defaults.baseURL = 'http://10.0.0.105:8000'
-    axios.defaults.withCredentials = true
 
     export default {
         name: 'SubjectsList',
@@ -82,7 +80,7 @@
                             this.show_created_alert = false;
                             this.show_wordsize_error = false;
                         } else if (status == 429) { /*too many requests*/
-                            window.alert('O limite diário de matérias criadas por todos os usuários (2500)'+
+                            window.alert('O limite diário de matérias criadas por todos os usuários (5000)'+
                                         ' foi excedido.'+
                                         ' Tente novamente amanhã.')
                         }

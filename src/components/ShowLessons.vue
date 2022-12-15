@@ -56,18 +56,10 @@
 
                 axios.post('/delete_lessons', {
                     ids: toDel
-                }).then((response) => {
-
+                }).then(() => {
                     this.$emit('refreshLessons', this.now_subject)
                 }).catch(()=>{})
             },
-
-            formatDateToBrazil(date){
-
-                let oldDate = date.split('-')
-                let newDate = oldDate[2] + '/' + oldDate[1] + '/' + oldDate[0]
-                return newDate
-            }
         },
         emits: ['refreshLessons']
     }
