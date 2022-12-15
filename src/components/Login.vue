@@ -22,7 +22,7 @@
                         <button @click="login" class="btn btn-success">Login</button>
                     </div>
                     <div style="display:table-cell;" v-if="createAccountScreen" >
-                        <button @click="createNewAccount()" class="btn btn-success new-user" :style="marginCreate">Cadastrar</button>
+                        <button @click="createNewAccount()" class="btn btn-success new-user create-new" :style="marginCreate">Cadastrar</button>
                     </div>
                     <div style="display:table-cell;" v-else>
                         <button @click="showCreateAccount()" class="btn btn-success new-user" :style="marginCreate">Criar nova conta</button>
@@ -95,7 +95,10 @@
                 <p>&nbsp;O Revisapp é um projeto pessoal que serve para ajudar estudantes que utilizam o método de revisões espaçadas.</p>
                    <p>&nbsp;O front-end foi feito em VueJs, a API foi desenvolvida em Python
                     utilizando FastAPI que se relaciona com um banco PostgreSQL. O sistema de autenticação
-                utiliza tokens JWT e Oauth2</p>
+                utiliza tokens JWT e Oauth2.</p>
+                <p>&nbsp;Do bootstrap foram utilizados containers, listas e tabelas. Porém nenhum template pronto foi usado.
+                    
+                </p>
                     <p>&nbsp;Busquei criar algo bem específico para que fique claro que não segui algum tutorial de um curso
                     qualquer na internet.</p><p>&nbsp;O código fonte do projeto pode ser acessado em:<br>&nbsp;..........<br></p>
                     <p>&nbsp;O site funciona da seguinte forma:</p>
@@ -158,7 +161,7 @@
                     if (token){
                         this.$emit('loggedIn', true)
                     }
-                }).catch( (error) => {
+                }).catch( () => {
                     this.showAlert('wrongUser')
                 })
 
@@ -298,10 +301,16 @@
     margin-left: 10px;
     background-color: rgb(45, 187, 17);
     border-color:  rgb(45, 187, 17);
+    max-height: 40px;
+    text-align: center;
+    min-width: 145px;
 }
 .new-user:hover {
     background-color: rgb(33, 141, 11);
     border-color:   rgb(33, 141, 11);
+}
+.create-new {
+    min-width: 100px;
 }
 .cancel {
     margin-left: 10px;
@@ -359,7 +368,7 @@ ul {
 .icon-name{
     margin-bottom: 0; 
     margin-left: 10px;
-    color: blue;
+    color: rgb(0, 0, 119);
 }
 .img-link:hover{
     color: rgb(0, 37, 158);
