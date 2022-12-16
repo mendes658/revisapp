@@ -20,8 +20,6 @@
 
 <script>
     import axios from 'axios'
-    axios.defaults.baseURL = 'https://pedromendes.xyz'
-    axios.defaults.withCredentials = true 
     
     export default {
         name: 'ShowLessons',
@@ -61,7 +59,7 @@
             deleteLesson(){
                 let toDel = Object.keys(this.to_delete)
 
-                axios.post('/delete_lessons', {
+                axios.post('https://pedromendes.xyz/delete_lessons', {
                     ids: toDel
                 }).then(() => {
                     this.$emit('refreshLessons', this.now_subject)

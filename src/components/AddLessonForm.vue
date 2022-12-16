@@ -83,8 +83,6 @@
 
 <script>
     import axios from 'axios'
-    axios.defaults.baseURL = 'https://pedromendes.xyz'
-    axios.defaults.withCredentials = true 
 
     export default {
         name: 'AddLessonForm',
@@ -134,7 +132,7 @@
                         lastRev = null
                     }
 
-                    axios.post('/add_lesson',{
+                    axios.post('https://pedromendes.xyz/add_lesson',{
                         revision_dates: revisionDatesString,
                         date: standardDate,
                         chosen_subject: this.chosen_subject,
@@ -181,7 +179,7 @@
             },
 
             updateSubjects(){
-                axios.get('/get_all_subjects', {
+                axios.get('https://pedromendes.xyz/get_all_subjects', {
                     }).then((response) => {
                         if (response.data.subjects != []){
                             this.subjects = response.data.subjects

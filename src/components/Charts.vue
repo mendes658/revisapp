@@ -54,7 +54,7 @@
             /*  Get para pegar as matérias estudadas nos últimos 11 dias
                 e colocar na Chart*/
             getLast11Studied(chart){
-                axios.get('/get_last11_studied')
+                axios.get('https://pedromendes.xyz/get_last11_studied')
                 .then((response) => {
                     let last11 = response.data.last11
 

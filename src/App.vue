@@ -94,7 +94,7 @@ export default {
     
     /*Verifica se existe um token válido nos cookies e loga o user caso verdadeiro */
     autoLogin(){
-                axios.get('/auth_user').then(()=> {
+                axios.get('https://pedromendes.xyz/auth_user').then(()=> {
                 }).catch(()=> {
                     this.logged = false
                 })

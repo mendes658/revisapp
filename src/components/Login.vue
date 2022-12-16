@@ -120,7 +120,6 @@
 
 <script>
     import axios from 'axios'
-    axios.defaults.baseURL = 'https://pedromendes.xyz'
     axios.defaults.withCredentials = true 
 
     export default{
@@ -151,7 +150,7 @@
                 loginForm.append('username', this.user)
                 loginForm.append('password', this.pass)
 
-                axios.post('/login', {loginForm}, {
+                axios.post('https://pedromendes.xyz/login', {loginForm}, {
                     transformRequest: () => {
                         return loginForm
                     }
@@ -208,7 +207,7 @@
                 } else if (this.pass != this.passConfirm){
                     this.showAlert('confirmPassError')
                 } else {
-                    axios.post('/create_user', {
+                    axios.post('https://pedromendes.xyz/create_user', {
                         username: this.user,
                         password: this.pass
                     }).then(()=>{
@@ -246,6 +245,8 @@
         },
         emits: ['loggedIn'],
         created() {
+        },
+        mounted(){
         }
     }
 </script>

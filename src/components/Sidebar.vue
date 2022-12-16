@@ -23,8 +23,6 @@
 
 <script>
   import axios from 'axios'
-  axios.defaults.baseURL = 'https://pedromendes.xyz'
-  axios.defaults.withCredentials = true 
 
   export default {
     name: "Sidebar",
@@ -69,7 +67,7 @@
 
       /*Manda um get para a API excluir o token salvo no navegador */
       logOut(){
-        axios.get('/log_out').catch(()=>{
+        axios.get('https://pedromendes.xyz/log_out').catch(()=>{
         }).then(()=>{
           this.$emit('logOut')
         })

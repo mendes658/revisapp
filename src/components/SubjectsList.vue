@@ -40,9 +40,7 @@
 
 <script>
     import axios from 'axios'
-    axios.defaults.baseURL = 'https://pedromendes.xyz'
-    axios.defaults.withCredentials = true 
-    
+
     export default {
         name: 'SubjectsList',
         data() {
@@ -62,7 +60,7 @@
         methods: {
             addSubject(){
                     this.sent_subject = this.typed_subject
-                    axios.post('/add_subject', {
+                    axios.post('https://pedromendes.xyz/add_subject', {
                         subject: this.sent_subject
                     }, 
                     ).then(() => {
@@ -116,7 +114,7 @@
             },
             
             updateSubjects(){
-                axios.get('/get_all_subjects', {
+                axios.get('https://pedromendes.xyz/get_all_subjects', {
                     }).then((response) => {
 
                         this.subjects = response.data.subjects
@@ -126,7 +124,7 @@
             deleteSubjects(){
                 let subjectsToDelete = Object.keys(this.to_delete)
 
-                axios.post('/delete_subjects', {
+                axios.post('https://pedromendes.xyz/delete_subjects', {
                         subjects: subjectsToDelete
                     }).then(() => {
                         this.updateSubjects()

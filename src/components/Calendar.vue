@@ -24,7 +24,7 @@
                 em que existem revisões agendadas, e os valores são as matérias,
                 eles são colocados como "popups" no calendar e as datas ficam selecionadas */
             updateCalendar(){
-                axios.get('/get_all_revisions').then((response) => {
+                axios.get('https://pedromendes.xyz/get_all_revisions').then((response) => {
                     let allRevisions = response.data.allRevisions
                     
                     Object.keys(allRevisions).forEach(date => {
