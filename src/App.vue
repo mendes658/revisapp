@@ -21,7 +21,7 @@ import Sidebar from './components/Sidebar.vue'
 import Header from './components/Header.vue'
 import Login from './components/Login.vue'
 import axios from 'axios'
-axios.defaults.baseURL = 'http://10.0.0.105:8000'
+axios.defaults.baseURL = 'http://18.231.180.238:8080'
 axios.defaults.withCredentials = true /*Necessário para mandar o token jwt nos headers para a API */
 
 
