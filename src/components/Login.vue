@@ -67,7 +67,8 @@
                     <li>Banco de dados (PostgreSQL, MySQL)</li>
                 </ul>
                 <p>&nbsp;Estou disposto a aprender qualquer tecnologia que seja necessária para realizar o trabalho, o principal
-                    objetivo deste site é mostrar minha capacidade em "me virar" e resolver problemas.
+                    objetivo deste site é mostrar minha capacidade em "me virar" e resolver problemas.<br>
+                    Meu email: pmo2002@gmail.com
                 </p>
                 <div style="margin-top: 10px; max-width: fit-content;">
                     <a href="https://github.com/mendes658" target="blank" class="img-link">
@@ -94,13 +95,13 @@
             <div class="main-text">
                 <p>&nbsp;O Revisapp é um projeto pessoal que serve para ajudar estudantes que utilizam o método de revisões espaçadas.</p>
                    <p>&nbsp;O front-end foi feito em VueJs, a API foi desenvolvida em Python
-                    utilizando FastAPI que se relaciona com um banco PostgreSQL. O sistema de autenticação
+                    utilizando FastAPI que se relaciona com um banco PostgreSQL, ela está hospedada num servidor EC2 da AWS. O sistema de autenticação
                 utiliza tokens JWT e Oauth2.</p>
-                <p>&nbsp;Do bootstrap foram utilizados containers, listas e tabelas. Porém nenhum template pronto foi usado.
-                    
+                <p>&nbsp;Do bootstrap foram utilizados containers, listas e tabelas. Nenhum template pronto foi usado.             
                 </p>
                     <p>&nbsp;Busquei criar algo bem específico para que fique claro que não segui algum tutorial de um curso
-                    qualquer na internet.</p><p>&nbsp;O código fonte do projeto pode ser acessado em:<br>&nbsp;..........<br></p>
+                    qualquer na internet.</p><p>&nbsp;O código fonte do front pode ser acessado em:<br>&nbsp;<a href="https://github.com/mendes658/revisapp" target="blank">https://github.com/mendes658/revisapp</a><br></p>
+                    <p>&nbsp;E o da API em:<br>&nbsp;<a href="https://github.com/mendes658/api-revisapp" target="blank">https://github.com/mendes658/api-revisapp</a><br></p>
                     <p>&nbsp;O site funciona da seguinte forma:</p>
                 <ul>
                     <li>Insira as matérias que você está estudando atualmente</li>
@@ -110,9 +111,14 @@
                 <p>
                     &nbsp;Pronto! Agora quando chegar o dia das revisões, você poderá ver cada assunto na seção "Revisões de hoje".
                 </p>
-                <div class="tutorial-gif">
+                <div class="tutorial-gif" style="margin-bottom:10px;">
                     <img src="../assets/icons/revisapp.gif" alt="how-to-revisapp" class="gif">
                 </div>
+                <p>
+                    &nbsp;*Obs.: Depois de terminar o projeto eu vi que já existe um app android de mesmo nome. 
+                    Apesar disso, não existe nenhuma relação do meu Revisapp com o aplicativo, além das propostas serem diferentes. 
+                    Enquanto eles focam em oferecer conteúdos para estudo, o meu serve de auxílio para organizar as revisões espaçadas.
+                </p>
             </div>
         </div>
     </div>
