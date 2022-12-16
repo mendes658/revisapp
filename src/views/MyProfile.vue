@@ -41,8 +41,6 @@ import RevisionTable from '../components/RevisionTable.vue'
 import AddLessonForm from '../components/AddLessonForm.vue'
 import Calendar from '../components/Calendar.vue'
 import axios from 'axios'
-axios.defaults.baseURL = 'http://10.0.0.105:8000'
-
 
 export default {
     name: "MyProfile",
@@ -83,7 +81,7 @@ export default {
                 } else {
                   var today = this.getTodaysDate()
                 }
-                axios.get('/get_todays_revisions/' + today).then((response) => {
+                axios.get('https://pedromendes.xyz/get_todays_revisions/' + today).then((response) => {
                     this.todays_revision = response.data.todaysRevisions
                 }).catch(()=>{})
       },

@@ -19,7 +19,6 @@
 import SubjectsList from '@/components/SubjectsList.vue';
 import ShowLessons from '@/components/ShowLessons.vue';
 import axios from 'axios'
-axios.defaults.baseURL = 'http://10.0.0.105:8000'
 
 export default {
   name: "Subjects",
@@ -35,13 +34,13 @@ export default {
   },
   methods: {
     showClickedSubjectLessons(sub){
-      axios.get('/get_lessons/'+sub).then((response) => {
+      axios.get('https://pedromendes.xyz/get_lessons/'+sub).then((response) => {
                 this.lessons_data = response.data.lessons
             })
       this.subject_name = sub
     },
     updateBothLists(sub){
-      axios.get('/get_lessons/'+sub).then((response) => {
+      axios.get('https://pedromendes.xyz/get_lessons/'+sub).then((response) => {
                 this.lessons_data = response.data.lessons
             })
       this.to_delete0 = {}
