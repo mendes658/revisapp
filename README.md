@@ -1,19 +1,13 @@
-# front-end
+# REVISAPP FRONT-END
 
-## Project setup
+### O front foi feito em VueJs, para rodá-lo na sua máquina é necesário o npm.
+
+## Instala as dependências necessárias
 ```
 npm install
 ```
 
-### Compiles and hot-reloads for development
+### Compila num servidor de desenvolvimento
 ```
 npm run serve
 ```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
