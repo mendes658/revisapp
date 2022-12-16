@@ -40,7 +40,9 @@
 
 <script>
     import axios from 'axios'
-
+    axios.defaults.baseURL = 'https://pedromendes.xyz'
+    axios.defaults.withCredentials = true 
+    
     export default {
         name: 'SubjectsList',
         data() {

@@ -120,9 +120,8 @@
 
 <script>
     import axios from 'axios'
-    
-    axios.defaults.baseURL = 'http://10.0.0.105:8000'
-    axios.defaults.withCredentials = true
+    axios.defaults.baseURL = 'https://pedromendes.xyz'
+    axios.defaults.withCredentials = true 
 
     export default{
         name: 'Login',
