@@ -124,7 +124,7 @@
             deleteSubjects(){
                 let subjectsToDelete = Object.keys(this.to_delete)
 
-                axios.post('https://pedromendes.xyz/delete_subjects', {
+                axios.post('https://pedromendes.xyz/delete_subjects/', {
                         subjects: subjectsToDelete
                     }).then(() => {
                         this.updateSubjects()
