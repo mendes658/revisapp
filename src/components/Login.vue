@@ -67,8 +67,8 @@
                     <li>Banco de dados (PostgreSQL, MySQL)</li>
                 </ul>
                 <p>&nbsp;Estou disposto a aprender qualquer tecnologia que seja necessária para realizar o trabalho, o principal
-                    objetivo deste site é mostrar minha capacidade em "me virar" e resolver problemas.<br>
-                    Meu email: pmo2002@gmail.com
+                    objetivo deste site é mostrar minha capacidade em "me virar" e resolver problemas.</p>
+                <p>Meu email: pmo2002@gmail.com
                 </p>
                 <div style="margin-top: 10px; max-width: fit-content;">
                     <a href="https://github.com/mendes658" target="blank" class="img-link">
