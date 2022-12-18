@@ -212,6 +212,8 @@
                     this.showAlert('sizeErrorPassword')
                 } else if (this.pass != this.passConfirm){
                     this.showAlert('confirmPassError')
+                } else if (this.user.includes(' ')){
+                    this.showAlert('unavailableUser')
                 } else {
                     axios.post('https://pedromendes.xyz/create_user', {
                         username: this.user,
