@@ -57,7 +57,7 @@
                 <div class="triangle-text"><h2>SOBRE MIM</h2></div>          
             </div>
             <div class="main-text">
-                <p>&nbsp;Olá! Meu nome é Pedro Mendes, tenho 20 anos e atualmente estou no segundo semestre de Engenharia de Computação na Universidade
+                <p>&nbsp;Olá! Meu nome é Pedro Mendes, tenho 21 anos e atualmente estou no segundo semestre de Engenharia de Computação na Universidade
                     Estadual de Feira de Santana. No momento estou em busca de uma oportunidade de emprego na área, como estagiário
                     ou desenvolvedor júnior. Possuo inglês avançado e conhecimentos intermediários em:
                 </p>
