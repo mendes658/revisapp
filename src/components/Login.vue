@@ -4,6 +4,12 @@
             <div class="logo-div">
                 <img src="../assets/icons/revisapp-logo.png" alt="revisapp-logo" class="logo">
             </div>
+            
+            <div class="alert alert-danger" role="alert">
+                Login temporariamente indisponível
+            </div>
+
+
             <div class="container main-login">
                 <div class="form-group">
                     <label for="username" class="form-label">Username</label>
@@ -48,11 +54,6 @@
                     <div class="alert alert-danger" role="alert" :style="alerts['confirmPassError']">
                         Senhas não conferem
                     </div>
-                </div>
-
-
-                <div class="alert alert-danger" role="alert">
-                    Login temporariamente indisponível
                 </div>
 
 
