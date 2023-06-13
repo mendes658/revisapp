@@ -49,6 +49,13 @@
                         Senhas não conferem
                     </div>
                 </div>
+
+
+                <div class="alert alert-danger" role="alert" :style="alerts['confirmPassError']">
+                    Login temporariamente indisponível
+                </div>
+
+                
             </div>
         </div>
         <div class="container0" style="margin-top: 5px; padding-top: 10px; max-height: max-content; margin-bottom: 30px;">
@@ -373,6 +380,9 @@ ul {
 }
 .main-login {
     padding-bottom: 20px;
+
+    pointer-events: none;
+    opacity: 0.5;
 }
 .icon {
     max-height: 30px;
