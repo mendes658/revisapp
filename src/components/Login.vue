@@ -51,11 +51,11 @@
                 </div>
 
 
-                <div class="alert alert-danger" role="alert" :style="alerts['confirmPassError']">
+                <div class="alert alert-danger" role="alert">
                     Login temporariamente indisponível
                 </div>
 
-                
+
             </div>
         </div>
         <div class="container0" style="margin-top: 5px; padding-top: 10px; max-height: max-content; margin-bottom: 30px;">
