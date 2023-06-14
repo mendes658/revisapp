@@ -4,10 +4,11 @@
             <div class="logo-div">
                 <img src="../assets/icons/revisapp-logo.png" alt="revisapp-logo" class="logo">
             </div>
-            
+
+            <!--
             <div class="alert alert-danger" role="alert">
                 Login temporariamente indisponível
-            </div>
+            </div> -->
 
 
             <div class="container main-login">
@@ -382,8 +383,10 @@ ul {
 .main-login {
     padding-bottom: 20px;
 
+    /*
     pointer-events: none;
-    opacity: 0.5;
+    opacity: 0.5; */
+
 }
 .icon {
     max-height: 30px;
